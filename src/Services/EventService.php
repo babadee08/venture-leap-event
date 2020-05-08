@@ -56,10 +56,11 @@ class EventService
     }
 
     /**
+     * @param int $size
      * @return Activity[]
      */
-    public function findAll()
+    public function findAll(int $size = 10)
     {
-        return $this->repository->findAll();
+        return $this->repository->findLatestActivities($size);
     }
 }

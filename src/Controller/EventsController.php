@@ -43,9 +43,10 @@ class EventsController extends BaseController
         return $this->response($serialized_data, Response::HTTP_CREATED);
     }
 
-    public function getEvents()
+    public function getEvents(Request $request)
     {
-        $data = $this->service->findAll();
+        $size = $request->get('size') ?? 10;
+        $data = $this->service->findAll($size);
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['activity', 'main']]);
         return $this->response($serialized_data);
     }
