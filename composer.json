@@ -16,9 +16,11 @@
         "symfony/yaml": "4.4.*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "symfony/browser-kit": "4.4.*",
         "symfony/maker-bundle": "^1.16",
-        "symfony/phpunit-bridge": "^5.0"
+        "symfony/phpunit-bridge": "^5.0",
+        "ext-json": "*"
     },
     "config": {
         "preferred-install": {
