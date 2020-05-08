@@ -4,4 +4,10 @@
 
 all_categories:
   path: /api/categories
+  methods: [GET]
   controller: App\Controller\CategoryController::getAllCategories
+
+create_category:
+  methods: [POST]
+  path: /api/categories
+  controller: App\Controller\CategoryController::create
