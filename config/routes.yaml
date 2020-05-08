@@ -16,3 +16,8 @@ create_event:
   methods: [POST]
   path: /api/events
   controller: App\Controller\EventsController::create
+
+fatch_events:
+  methods: [get]
+  path: /api/events
+  controller: App\Controller\EventsController::getEvents

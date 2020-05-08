@@ -54,4 +54,12 @@ class EventService
         return $event;
 
     }
+
+    /**
+     * @return Activity[]
+     */
+    public function findAll()
+    {
+        return $this->repository->findAll();
+    }
 }

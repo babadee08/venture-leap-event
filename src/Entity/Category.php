@@ -32,7 +32,7 @@ class Category
     private $name;
 
     /**
-     * @Groups("main")
+     * @Groups("activity_details")
      * @ORM\OneToMany(targetEntity=Activity::class, mappedBy="category")
      */
     private $activities;

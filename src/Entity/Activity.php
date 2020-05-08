@@ -32,6 +32,7 @@ class Activity
     private $title;
 
     /**
+     * @Groups("activity")
      * @ORM\Column(type="datetime")
      */
     private $created_at;

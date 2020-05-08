@@ -27,7 +27,6 @@ class CategoryController extends BaseController
     }
 
     /**
-     * @param SerializerInterface $serializer
      * @return JsonResponse
      */
     public function getAllCategories()

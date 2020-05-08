@@ -21,8 +21,8 @@ class CategoryControllerTest extends BaseControllerTestCase
 
         $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
         $this->assertEquals($response->getContent(), json_encode([
-            ['id' => 1, 'name' => 'Worldwide', 'activities' => []],
-            ['id' => 2, 'name' => 'CountryWide', 'activities' => []],
+            ['id' => 1, 'name' => 'Worldwide'],
+            ['id' => 2, 'name' => 'CountryWide'],
         ]));
     }
 
