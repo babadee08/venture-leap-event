@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Entity\Event;
 use App\Entity\Category;
-use App\Repository\ActivityRepository;
+use App\Repository\EventRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
@@ -15,7 +15,7 @@ class EventService
 {
 
     /**
-     * @var ActivityRepository
+     * @var EventRepository
      */
     private $repository;
     /**
@@ -23,7 +23,7 @@ class EventService
      */
     private $manager;
 
-    public function __construct(ActivityRepository $repository, EntityManagerInterface $manager)
+    public function __construct(EventRepository $repository, EntityManagerInterface $manager)
     {
         $this->repository = $repository;
         $this->manager = $manager;

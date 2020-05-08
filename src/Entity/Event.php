@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ActivityRepository;
+use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ORM\Entity(repositoryClass=ActivityRepository::class)
+ * @ORM\Entity(repositoryClass=EventRepository::class)
  */
 class Event
 {
