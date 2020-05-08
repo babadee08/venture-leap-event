@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ActivityRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ActivityRepository::class)
@@ -11,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Activity
 {
     /**
+     * @Groups("activity")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -18,11 +20,13 @@ class Activity
     private $id;
 
     /**
+     * @Groups("activity")
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="activities")
      */
     private $category;
 
     /**
+     * @Groups("activity")
      * @ORM\Column(type="string", length=255)
      */
     private $title;

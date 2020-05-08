@@ -11,3 +11,8 @@ create_category:
   methods: [POST]
   path: /api/categories
   controller: App\Controller\CategoryController::create
+
+create_event:
+  methods: [POST]
+  path: /api/events
+  controller: App\Controller\EventsController::create

@@ -17,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
+     * @Groups("main")
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -31,6 +32,7 @@ class Category
     private $name;
 
     /**
+     * @Groups("main")
      * @ORM\OneToMany(targetEntity=Activity::class, mappedBy="category")
      */
     private $activities;
