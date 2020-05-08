@@ -22,8 +22,8 @@ final class Version20200508120811 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE activity (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, category_id INTEGER DEFAULT NULL, title VARCHAR(255) NOT NULL UNIQUE, created_at DATETIME NOT NULL)');
-        $this->addSql('CREATE INDEX IDX_AC74095A12469DE2 ON activity (category_id)');
+        $this->addSql('CREATE TABLE event (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, category_id INTEGER DEFAULT NULL, title VARCHAR(255) NOT NULL UNIQUE, created_at DATETIME NOT NULL)');
+        $this->addSql('CREATE INDEX IDX_AC74095A12469DE2 ON event (category_id)');
         $this->addSql('CREATE TABLE category (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL UNIQUE)');
     }
 
@@ -32,7 +32,7 @@ final class Version20200508120811 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('DROP TABLE activity');
+        $this->addSql('DROP TABLE event');
         $this->addSql('DROP TABLE category');
     }
 }

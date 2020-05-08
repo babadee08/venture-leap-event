@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=ActivityRepository::class)
  */
-class Activity
+class Event
 {
     /**
      * @Groups("activity")

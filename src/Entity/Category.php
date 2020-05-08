@@ -33,7 +33,7 @@ class Category
 
     /**
      * @Groups("activity_details")
-     * @ORM\OneToMany(targetEntity=Activity::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="category")
      */
     private $activities;
 
@@ -60,14 +60,14 @@ class Category
     }
 
     /**
-     * @return Collection|Activity[]
+     * @return Collection|Event[]
      */
     public function getActivities(): Collection
     {
         return $this->activities;
     }
 
-    public function addActivity(Activity $activity): self
+    public function addActivity(Event $activity): self
     {
         if (!$this->activities->contains($activity)) {
             $this->activities[] = $activity;
@@ -77,7 +77,7 @@ class Category
         return $this;
     }
 
-    public function removeActivity(Activity $activity): self
+    public function removeActivity(Event $activity): self
     {
         if ($this->activities->contains($activity)) {
             $this->activities->removeElement($activity);

@@ -4,7 +4,7 @@
 namespace App\Services;
 
 
-use App\Entity\Activity;
+use App\Entity\Event;
 use App\Entity\Category;
 use App\Repository\ActivityRepository;
 use DateTime;
@@ -32,12 +32,12 @@ class EventService
     /**
      * @param string $title
      * @param int $category_id
-     * @return Activity
+     * @return Event
      * @throws Exception
      */
     public function createEvent(string $title, int $category_id)
     {
-        $event = new Activity();
+        $event = new Event();
 
         $category = $this->manager->getRepository(Category::class)->find($category_id);
 
@@ -57,7 +57,7 @@ class EventService
 
     /**
      * @param int $size
-     * @return Activity[]
+     * @return Event[]
      */
     public function findAll(int $size = 10)
     {
