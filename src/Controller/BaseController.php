@@ -19,6 +19,7 @@ class BaseController extends AbstractController
      */
     public function response($data, int $status_code = 200, $headers = [])
     {
+        $data = is_array($data) ? $data : json_decode($data);
         return new JsonResponse($data, $status_code, $headers);
     }
 

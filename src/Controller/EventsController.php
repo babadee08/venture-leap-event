@@ -40,14 +40,13 @@ class EventsController extends BaseController
         $category_id = $request->get('category_id');
         $data = $this->service->createEvent($title, $category_id);
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['activity', 'main']]);
-        return $this->response(json_decode($serialized_data), Response::HTTP_CREATED);
+        return $this->response($serialized_data, Response::HTTP_CREATED);
     }
 
     public function getEvents()
     {
         $data = $this->service->findAll();
-        // var_dump($data[0]->getCategory()->getName()); exit;
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['activity', 'main']]);
-        return $this->response(json_decode($serialized_data));
+        return $this->response($serialized_data);
     }
 }

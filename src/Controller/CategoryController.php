@@ -33,7 +33,7 @@ class CategoryController extends BaseController
     {
         $data = $this->service->findAll();
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['main']]);
-        return $this->response(json_decode($serialized_data));
+        return $this->response($serialized_data);
     }
 
     /**
@@ -46,6 +46,6 @@ class CategoryController extends BaseController
         $name = $request->get('name');
         $data = $this->service->createCategory($name);
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['main']]);
-        return $this->response(json_decode($serialized_data), Response::HTTP_CREATED);
+        return $this->response($serialized_data, Response::HTTP_CREATED);
     }
 }
