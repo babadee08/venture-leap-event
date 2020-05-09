@@ -19,21 +19,34 @@ class CategoryService
      */
     private $manager;
 
+    /**
+     * CategoryService constructor.
+     * @param CategoryRepository $repository
+     * @param EntityManagerInterface $manager
+     */
     public function __construct(CategoryRepository $repository, EntityManagerInterface $manager)
     {
         $this->repository = $repository;
         $this->manager = $manager;
     }
 
+    /**
+     * @return Category[]
+     */
     public function findAll()
     {
         return $this->repository->findAll();
     }
 
+    /**
+     * @param string $name
+     * @return Category
+     */
     public function createCategory(string $name)
     {
         $category = new Category();
         $category->setName($name);
+
         $this->manager->persist($category);
         $this->manager->flush();
 

@@ -12,6 +12,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ExceptionListener
 {
+    /**
+     * Global even handler for handling all Exceptions
+     * @param ExceptionEvent $event
+     */
     public function onKernelException(ExceptionEvent $event)
     {
         $exception = $event->getThrowable();

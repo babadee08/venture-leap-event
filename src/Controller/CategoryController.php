@@ -20,6 +20,11 @@ class CategoryController extends BaseController
      */
     private $serializer;
 
+    /**
+     * CategoryController constructor.
+     * @param CategoryService $service
+     * @param SerializerInterface $serializer
+     */
     public function __construct(CategoryService $service, SerializerInterface $serializer)
     {
         $this->service = $service;
@@ -32,7 +37,9 @@ class CategoryController extends BaseController
     public function getAllCategories()
     {
         $data = $this->service->findAll();
+
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['main']]);
+
         return $this->response($serialized_data);
     }
 
@@ -43,9 +50,13 @@ class CategoryController extends BaseController
     public function create(Request $request)
     {
         $request = $this->transformJsonBody($request);
+
         $name = $request->get('name');
+
         $data = $this->service->createCategory($name);
+
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['main']]);
+
         return $this->response($serialized_data, Response::HTTP_CREATED);
     }
 }

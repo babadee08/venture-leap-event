@@ -23,6 +23,11 @@ class EventService
      */
     private $manager;
 
+    /**
+     * EventService constructor.
+     * @param EventRepository $repository
+     * @param EntityManagerInterface $manager
+     */
     public function __construct(EventRepository $repository, EntityManagerInterface $manager)
     {
         $this->repository = $repository;

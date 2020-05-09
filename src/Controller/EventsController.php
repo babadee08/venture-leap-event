@@ -22,6 +22,11 @@ class EventsController extends BaseController
      */
     private $serializer;
 
+    /**
+     * EventsController constructor.
+     * @param EventService $service
+     * @param SerializerInterface $serializer
+     */
     public function __construct(EventService $service, SerializerInterface $serializer)
     {
         $this->service = $service;
@@ -36,18 +41,29 @@ class EventsController extends BaseController
     public function create(Request $request)
     {
         $request = $this->transformJsonBody($request);
+
         $title = $request->get('title');
         $category_id = $request->get('category_id');
+
         $data = $this->service->createEvent($title, $category_id);
+
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['activity', 'main']]);
+
         return $this->response($serialized_data, Response::HTTP_CREATED);
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function getEvents(Request $request)
     {
         $size = $request->get('size') ?? 10;
+
         $data = $this->service->findAll($size);
+
         $serialized_data = $this->serializer->serialize($data, 'json', ['groups' => ['activity', 'main']]);
+
         return $this->response($serialized_data);
     }
 }

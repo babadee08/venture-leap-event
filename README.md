@@ -50,3 +50,7 @@ The table below shows the available endpoints below and protection level
 
 3. The test isn't comprehensive enough. 
     - I only created feature tests without any unit test as it covers end to end testing of the app.
+
+```
+PS: Comments are also not that great in this simple project but the code is super easy to follow.
+```
